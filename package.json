@@ -1,0 +1,21 @@
+{
+  "name": "com.raccoons.ui",
+  "displayName": "Raccoons UI",
+  "version": "0.1.0",
+  "description": "Raccoons user interface framework",
+  "unity": "2018.1",
+  "author": "Raccoons Games",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raccoons-games/Raccoons.UI.git"
+  },
+  "keywords": [
+    "raccoons",
+	"guids"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raccoons-games/Raccoons.UI/issues"
+  },
+  "homepage": "https://github.com/raccoons-games/Raccoons.UI#readme"
+}
