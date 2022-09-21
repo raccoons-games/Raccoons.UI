@@ -11,11 +11,21 @@
   },
   "keywords": [
     "raccoons",
-	"guids"
+    "guids"
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/raccoons-games/Raccoons.UI/issues"
   },
-  "homepage": "https://github.com/raccoons-games/Raccoons.UI#readme"
+  "homepage": "https://github.com/raccoons-games/Raccoons.UI#readme",
+  "samples": [
+    {
+      "displayName": "Samples",
+      "description": "Contains sample scene with demo screens",
+      "path": "Samples~"
+    }
+  ],
+  "dependencies": {
+    "com.raccoons.identifiers": ""
+  }
 }

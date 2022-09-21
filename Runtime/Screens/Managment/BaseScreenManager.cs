@@ -7,20 +7,20 @@ using Raccoons.UI.Guids;
 namespace Raccoons.UI.Screens
 {
     public abstract class BaseScreenManager : BaseScreenManager<BaseScreen> { }
-    public abstract class BaseScreenManager<T> : MonoBehaviour where T : BaseScreen
+    public abstract class BaseScreenManager<TScreen> : MonoBehaviour where TScreen : BaseScreen
     {
         [SerializeField]
-        private List<T> _allScreens;
+        private List<TScreen> _allScreens;
 
         [Header("ReadOnly")]
         [SerializeField]
-        private List<T> _allOpenedScreens;
+        private List<TScreen> _allOpenedScreens;
 
         public event EventHandler<IScreen> OnOpenedScreen;
         public event EventHandler<IScreen> OnClosedScreen;
 
-        protected List<T> AllOpenedScreens { get => _allOpenedScreens; }
-        protected List<T> AllScreens { get => _allScreens; }
+        protected List<TScreen> AllOpenedScreens { get => _allOpenedScreens; }
+        protected List<TScreen> AllScreens { get => _allScreens; }
 
         #region Awake
         protected virtual void Awake()
@@ -31,7 +31,7 @@ namespace Raccoons.UI.Screens
                     screen.OnOpened += Screen_OnOpened;
                     screen.OnClosed += Screen_OnClosed;
                 });
-            _allOpenedScreens = new List<T>();
+            _allOpenedScreens = new List<TScreen>();
             _allOpenedScreens = _allScreens.FindAll(x => x.IsOpen() == true);
         }
         #endregion
@@ -71,7 +71,7 @@ namespace Raccoons.UI.Screens
         #region Opened screens
         private void AddOpenedScreen(IScreen screen)
         {
-            T baseScreen = screen as T;
+            TScreen baseScreen = screen as TScreen;
             if (screen != null)
             {
                 if (_allOpenedScreens.Contains(baseScreen) == false)
@@ -82,7 +82,7 @@ namespace Raccoons.UI.Screens
         }
         private void RemoveOpenedScreen(IScreen screen)
         {
-            T baseScreen = screen as T;
+            TScreen baseScreen = screen as TScreen;
             if (screen != null)
             {
                 if (_allOpenedScreens.Contains(baseScreen) == true)
@@ -94,29 +94,29 @@ namespace Raccoons.UI.Screens
         #endregion
 
         #region Get
-        protected R GetScreen<R>(Type type) where R : BaseScreen
+        protected RScreen GetScreen<RScreen>(Type type) where RScreen : BaseScreen
         {
-            R result = _allScreens.Find(x => x.GetType() == type) as R;
+            RScreen result = _allScreens.Find(x => x.GetType() == type) as RScreen;
          //   R result = allScreens.Find(x => x.GetType() == typeof(R)) as R;
             return result;
         }
-        protected R GetScreen<R>(string key) where R : BaseScreen
+        protected RScreen GetScreen<RScreen>(string key) where RScreen : BaseScreen
         {
-            List<T> screens = _allScreens.FindAll(x => x.GetType() is R);
-            R result = screens.Find(x => x.Key == key) as R;
+            List<TScreen> screens = _allScreens.FindAll(x => x.GetType() is RScreen);
+            RScreen result = screens.Find(x => x.Key == key) as RScreen;
             return result;
         }
-        protected R GetScreen<R>() where R : BaseScreen
+        protected RScreen GetScreen<RScreen>() where RScreen : BaseScreen
         {
-            return GetScreen<R>(typeof(R));
+            return GetScreen<RScreen>(typeof(RScreen));
         }
-        protected R GetScreen<R>(IUIGuid guid) where R : BaseScreen
+        protected RScreen GetScreen<RScreen>(IUIGuid guid) where RScreen : BaseScreen
         {
-            R result = null;
+            RScreen result = null;
             if (guid != null)
             {
-                List<T> screens = _allScreens.FindAll(x => x.Guid == guid);
-                result = screens.Find(x => x.GetType() == typeof(R)) as R;
+                List<TScreen> screens = _allScreens.FindAll(x => x.Guid == guid);
+                result = screens.Find(x => x.GetType() == typeof(RScreen)) as RScreen;
             }
             return result;
         }

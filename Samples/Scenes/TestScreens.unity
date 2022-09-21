@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: demo_game
+  _guid: {fileID: 0}
   _mainMenuButton: {fileID: 384692648}
 --- !u!1 &175657802
 GameObject:
@@ -826,6 +827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: demo_main_menu
+  _guid: {fileID: 0}
   _playButton: {fileID: 175657804}
   _waitPopUp: {fileID: 2131920935}
 --- !u!1 &629093049
