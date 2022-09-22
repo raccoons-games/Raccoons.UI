@@ -2,7 +2,7 @@
   "name": "com.raccoons.ui",
   "displayName": "Raccoons UI",
   "version": "0.1.0",
-  "description": "Raccoons user interface framework",
+  "description": "Raccoons user interface framework.\nRequires:\n- Raccoons.Identifiers.",
   "unity": "2018.1",
   "author": "Raccoons Games",
   "repository": {
@@ -11,7 +11,11 @@
   },
   "keywords": [
     "raccoons",
-    "guids"
+    "ui",
+    "user interface",
+    "screen",
+    "button",
+    "popup"
   ],
   "license": "MIT",
   "bugs": {
